@@ -12,6 +12,7 @@ export const withCreateForm = (Component) => (props) => {
     props.setPersonDetails({
       name: props.name,
       surname: props.surname,
+      amount: 0,
     });
   };
 
