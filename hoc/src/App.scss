@@ -5,18 +5,17 @@ $border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  %button {
-    height: 30px;
-    width: 100px;
-    border-radius: 5px;
-    border: none;
-    background-color: yellow;
-    cursor: pointer;
-    margin-top: 15px;
-    &:hover {
-      background-color: white;
-    }
+}
+%button {
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  border: none;
+  background-color: yellow;
+  cursor: pointer;
+  margin-top: 15px;
+  &:hover {
+    background-color: white;
   }
 }
 
@@ -32,7 +31,22 @@ $border: 1px solid black;
   min-height: 100vh;
 
   .content {
-    @extend %displayCenter;
+    @include display(center, column);
+    gap: 50px;
+
+    .list-container {
+      @include display(center, row);
+      gap: 30px;
+      flex-wrap: wrap;
+      padding: 20px;
+
+      .list {
+        @include display(flex-start, column);
+        height: 270px;
+        width: 250px;
+        border: $border;
+      }
+    }
 
     .form {
       @include display(center, column);

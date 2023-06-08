@@ -9,7 +9,7 @@ export const read = (key) => {
   if (data === null) {
     return [];
   }
-  JSON.parse(data);
+  return JSON.parse(data);
 };
 
 export const create = (key, data) => {

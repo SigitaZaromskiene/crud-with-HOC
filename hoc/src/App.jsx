@@ -15,8 +15,6 @@ function App() {
   const [personDetails, setPersonDetails] = useState(null);
   const [personList, setPersonList] = useState(null);
 
-  const FormCreateWithFormHandler = withCreateForm(Form);
-
   useEffect(() => {
     setPersonList(read(KEY));
   }, [lastUpdate]);
@@ -26,7 +24,10 @@ function App() {
       return;
     }
     create(KEY, personDetails);
+    setLastUpdate(Date.now());
   }, [personDetails]);
+
+  const FormCreateWithFormHandler = withCreateForm(Form);
 
   return (
     <div className="container">
