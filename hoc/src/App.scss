@@ -1,0 +1,66 @@
+$main-green: green;
+$border: 1px solid black;
+
+%displayCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  %button {
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    background-color: yellow;
+    cursor: pointer;
+    margin-top: 15px;
+    &:hover {
+      background-color: white;
+    }
+  }
+}
+
+@mixin display($justify, $direction) {
+  display: flex;
+  justify-content: $justify;
+  flex-direction: $direction;
+  align-items: center;
+}
+
+.container {
+  background-color: $main-green;
+  min-height: 100vh;
+
+  .content {
+    @extend %displayCenter;
+
+    .form {
+      @include display(center, column);
+      margin-top: 50px;
+      width: 450px;
+      height: 150px;
+      gap: 20px;
+      border: $border;
+      padding: 20px;
+
+      label {
+        font-size: 18px;
+      }
+
+      div {
+        @extend %displayCenter;
+        gap: 20px;
+        width: 300px;
+        justify-content: space-between;
+      }
+
+      input {
+        height: 24px;
+      }
+    }
+  }
+}
+
+.button {
+  @extend %button;
+}
