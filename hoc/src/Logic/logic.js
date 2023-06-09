@@ -28,16 +28,32 @@ export const withCreateForm = (Component) => (props) => {
   );
 };
 
-export const withDeleteBtn = (Component) => (props) => {
-  const deleteHandler = () => {
-    props.setDeleteModal(props.li);
+export const withDeleteAcc = (Component) => (props) => {
+  const deleteAccHandler = () => {
+    props.setDeleteData(props.li);
+  };
+
+  const deleteModal = () => {
+    props.setDeleteModal(null);
   };
 
   return (
     <Component
-      deleteHandler={deleteHandler}
-      setDeleteModal={props.setDeleteModal}
-      li={props.li}
+      deleteAccHandler={deleteAccHandler}
+      setDeleteData={props.setDeleteData}
+      deleteModal={deleteModal}
     />
   );
 };
+
+// export const withDeleteModal = (Component) => (props) => {
+//   const deleteModal = () => {
+//     props.setDeleteModal(null);
+//   };
+//   return (
+//     <Component
+//       deleteModal={deleteModal}
+//       setDeleteModal={props.setDeleteModal}
+//     />
+//   );
+// };
