@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { withCreateForm, withDeleteBtn } from "./Logic/logic";
 import Form from "./Design/Form";
 import List from "./Design/List";
-import { read, create, destroy } from "./localStorage";
+import { read, create, destroy, edit } from "./localStorage";
 import DeleteModal from "./Design/DeleteModal";
 
 function App() {
@@ -17,6 +17,9 @@ function App() {
   const [personList, setPersonList] = useState(null);
   const [deleteModal, setDeleteModal] = useState(null);
   const [deleteData, setDeleteData] = useState(null);
+
+  const [editModal, setEditModal] = useState(null);
+  const [editData, setEditData] = useState(null);
 
   useEffect(() => {
     setPersonList(read(KEY));
@@ -38,6 +41,14 @@ function App() {
     setLastUpdate(Date.now());
   }, [deleteData]);
 
+  useEffect(() => {
+    if (editData === null) {
+      return;
+    }
+    edit(KEY, editData, editData.id);
+    setLastUpdate(Date.now());
+  }, [editData]);
+
   const FormCreateWithFormHandler = withCreateForm(Form);
 
   return (
@@ -55,6 +66,13 @@ function App() {
           deleteModal={deleteModal}
           setDeleteModal={setDeleteModal}
           setDeleteData={setDeleteData}
+          setEditData={setEditData}
+          setEditModal={setEditModal}
+          editModal={editModal}
+          name={name}
+          surname={surname}
+          setSurname={setSurname}
+          setName={setName}
         />
       </div>
     </div>

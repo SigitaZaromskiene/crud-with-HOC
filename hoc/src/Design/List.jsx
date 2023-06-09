@@ -1,8 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
 import DeleteModal from "./DeleteModal";
-import { withDeleteAcc } from "../Logic/logic";
+import { withDeleteAcc, withEditAcc } from "../Logic/logic";
+import EditModal from "./EditModal";
 
 const DeleteAcc = withDeleteAcc(DeleteModal);
+
+const EditModalwithEditFunctions = withEditAcc(EditModal);
 
 function List({
   personList,
@@ -10,6 +13,14 @@ function List({
   deleteModal,
   setDeleteModal,
   setDeleteData,
+  editModalHandler,
+  setEditModal,
+  setEditData,
+  editModal,
+  name,
+  surname,
+  setName,
+  setSurname,
 }) {
   if (personList === null) {
     return "LOADING...";
@@ -36,7 +47,20 @@ function List({
                 li={li}
               />
             ) : null}{" "}
-            <button className="button">Edit</button>
+            <button className="button" onClick={() => setEditModal(li)}>
+              Edit
+            </button>
+            {editModal && editModal.id === li.id ? (
+              <EditModalwithEditFunctions
+                setEditModal={setEditModal}
+                setEditData={setEditData}
+                li={li}
+                name={name}
+                surname={surname}
+                setName={setName}
+                setSurname={setSurname}
+              />
+            ) : null}
           </div>
         </div>
       ))}

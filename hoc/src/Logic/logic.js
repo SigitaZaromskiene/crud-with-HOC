@@ -46,14 +46,15 @@ export const withDeleteAcc = (Component) => (props) => {
   );
 };
 
-// export const withDeleteModal = (Component) => (props) => {
-//   const deleteModal = () => {
-//     props.setDeleteModal(null);
-//   };
-//   return (
-//     <Component
-//       deleteModal={deleteModal}
-//       setDeleteModal={props.setDeleteModal}
-//     />
-//   );
-// };
+export const withEditAcc = (Component) => (props) => {
+  const editModaCancel = () => {
+    props.setEditModal(null);
+  };
+
+  return (
+    <Component
+      setEditModal={props.setEditModal}
+      editModaCancel={editModaCancel}
+    />
+  );
+};

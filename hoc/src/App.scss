@@ -95,3 +95,14 @@ $border: 1px solid black;
   border: $border;
   position: relative;
 }
+
+.form-edit {
+  @include display(flex-start, column);
+  height: 270px;
+  width: 250px;
+  border: $border;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: rgb(72, 107, 137);
+}
