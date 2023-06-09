@@ -1,4 +1,9 @@
-function EditModal({ name, setName, surname, setSurname }) {
+import { useState } from "react";
+
+function EditModal({ editListHandler, editModal }) {
+  console.log(editModal);
+  const [name, setName] = useState(editModal.name);
+  const [surname, setSurname] = useState(editModal.surname);
   return (
     <div className="form-edit">
       <div>
@@ -17,7 +22,9 @@ function EditModal({ name, setName, surname, setSurname }) {
           onChange={(e) => setSurname(e.target.value)}
         ></input>
       </div>
-      <button className="button">Edit</button>
+      <button onClick={editListHandler} className="button">
+        Edit
+      </button>
     </div>
   );
 }

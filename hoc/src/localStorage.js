@@ -28,7 +28,7 @@ export const destroy = (key, id) => {
 export const edit = (key, data, id) => {
   const allData = read(key);
   const edited = allData.map((d) =>
-    d.id === id ? { ...d, ...data, id } : { ...d }
+    d.id === id ? { ...d, ...data, id: id } : { ...d }
   );
   write(key, edited);
 };

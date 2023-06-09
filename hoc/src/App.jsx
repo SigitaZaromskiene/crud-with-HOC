@@ -73,6 +73,8 @@ function App() {
           surname={surname}
           setSurname={setSurname}
           setName={setName}
+          setPersonDetails={setPersonDetails}
+          setPersonList={setPersonList}
         />
       </div>
     </div>

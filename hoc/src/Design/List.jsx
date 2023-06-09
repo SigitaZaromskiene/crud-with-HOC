@@ -21,6 +21,9 @@ function List({
   surname,
   setName,
   setSurname,
+  setPersonDetails,
+  setPersonList,
+  editData,
 }) {
   if (personList === null) {
     return "LOADING...";
@@ -59,6 +62,9 @@ function List({
                 surname={surname}
                 setName={setName}
                 setSurname={setSurname}
+                setPersonDetails={setPersonDetails}
+                setPersonList={setPersonList}
+                editModal={editModal}
               />
             ) : null}
           </div>
