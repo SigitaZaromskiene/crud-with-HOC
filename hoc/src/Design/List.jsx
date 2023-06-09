@@ -1,6 +1,10 @@
 import { v4 as uuidv4 } from "uuid";
+import DeleteModal from "./DeleteModal";
+import { withDeleteBtn } from "../Logic/logic";
 
-function List({ personList }) {
+const DeleteModalOpen = withDeleteBtn(DeleteModal);
+
+function List({ personList, deleteHandler, deleteModal, setDeleteModal, li }) {
   if (personList === null) {
     return "LOADING...";
   }
@@ -14,7 +18,14 @@ function List({ personList }) {
           </div>
           <p>Total: {li.amount}</p>
           <div style={{ display: "flex", gap: "20px" }}>
-            <button className="button">Delete</button>
+            <button className="button" onClick={deleteHandler}>
+              Delete
+            </button>
+            <DeleteModalOpen
+              setDeleteModal={setDeleteModal}
+              deleteModal={deleteModal}
+              li={li}
+            />
             <button className="button">Edit</button>
           </div>
         </div>

@@ -27,3 +27,17 @@ export const withCreateForm = (Component) => (props) => {
     ></Component>
   );
 };
+
+export const withDeleteBtn = (Component) => (props) => {
+  const deleteHandler = () => {
+    props.setDeleteModal(props.li);
+  };
+
+  return (
+    <Component
+      deleteHandler={deleteHandler}
+      setDeleteModal={props.setDeleteModal}
+      li={props.li}
+    />
+  );
+};

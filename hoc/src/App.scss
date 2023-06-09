@@ -6,6 +6,15 @@ $border: 1px solid black;
   justify-content: center;
   align-items: center;
 }
+
+%modal {
+  height: 150px;
+  width: 150px;
+  background-color: red;
+  border: $border;
+  @extend %displayCenter;
+}
+
 %button {
   height: 30px;
   width: 100px;
@@ -39,13 +48,6 @@ $border: 1px solid black;
       gap: 30px;
       flex-wrap: wrap;
       padding: 20px;
-
-      .list {
-        @include display(flex-start, column);
-        height: 270px;
-        width: 250px;
-        border: $border;
-      }
     }
 
     .form {
@@ -77,4 +79,19 @@ $border: 1px solid black;
 
 .button {
   @extend %button;
+}
+
+.modal {
+  @extend %modal;
+  position: absolute;
+  top: 20px;
+  right: 50px;
+}
+
+.list {
+  @include display(flex-start, column);
+  height: 270px;
+  width: 250px;
+  border: $border;
+  position: relative;
 }
