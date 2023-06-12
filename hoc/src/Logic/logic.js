@@ -45,27 +45,3 @@ export const withDeleteAcc = (Component) => (props) => {
     />
   );
 };
-
-export const withEditAcc = (Component) => (props) => {
-  const editListHandler = () => {
-    props.setEditData({
-      name: props.name,
-      surname: props.surname,
-      id: props.editModal.id,
-    });
-    props.setEditModal(null);
-  };
-
-  return (
-    <Component
-      setEditModal={props.setEditModal}
-      editListHandler={editListHandler}
-      setEditData={props.setEditData}
-      editModal={props.editModal}
-      name={props.name}
-      surname={props.surname}
-      setName={props.setName}
-      setSurname={props.setSurname}
-    />
-  );
-};

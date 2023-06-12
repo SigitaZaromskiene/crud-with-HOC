@@ -1,11 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
 import DeleteModal from "./DeleteModal";
-import { withDeleteAcc, withEditAcc } from "../Logic/logic";
+import { withDeleteAcc } from "../Logic/logic";
 import EditModal from "./EditModal";
 
 const DeleteAcc = withDeleteAcc(DeleteModal);
-
-const EditModalwithEditFunctions = withEditAcc(EditModal);
 
 function List({
   personList,
@@ -17,10 +15,7 @@ function List({
   setEditModal,
   setEditData,
   editModal,
-  name,
-  surname,
-  setName,
-  setSurname,
+
   setPersonDetails,
   setPersonList,
   editData,
@@ -54,14 +49,10 @@ function List({
               Edit
             </button>
             {editModal && editModal.id === li.id ? (
-              <EditModalwithEditFunctions
+              <EditModal
                 setEditModal={setEditModal}
                 setEditData={setEditData}
                 li={li}
-                name={name}
-                surname={surname}
-                setName={setName}
-                setSurname={setSurname}
                 setPersonDetails={setPersonDetails}
                 setPersonList={setPersonList}
                 editModal={editModal}

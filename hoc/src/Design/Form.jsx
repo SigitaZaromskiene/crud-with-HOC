@@ -1,4 +1,6 @@
-function Form({ formHandler, name, surname, setSurname, setName }) {
+import { useState } from "react";
+
+function Form({ formHandler, name, surname, setName, setSurname }) {
   return (
     <div className="form">
       <div>
@@ -17,7 +19,12 @@ function Form({ formHandler, name, surname, setSurname, setName }) {
           onChange={(e) => setSurname(e.target.value)}
         ></input>
       </div>
-      <button className="button" onClick={formHandler}>
+      <button
+        className="button"
+        onClick={formHandler}
+        name={name}
+        surname={surname}
+      >
         Submit
       </button>
     </div>

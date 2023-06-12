@@ -1,9 +1,19 @@
 import { useState } from "react";
 
-function EditModal({ editListHandler, editModal }) {
+function EditModal({ editModal, setEditModal, setEditData }) {
   console.log(editModal);
   const [name, setName] = useState(editModal.name);
   const [surname, setSurname] = useState(editModal.surname);
+
+  const editListHandler = () => {
+    setEditData({
+      name: name,
+      surname: surname,
+      id: editModal.id,
+    });
+    setEditModal(null);
+  };
+
   return (
     <div className="form-edit">
       <div>
