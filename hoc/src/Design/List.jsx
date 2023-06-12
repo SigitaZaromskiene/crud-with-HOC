@@ -7,18 +7,14 @@ const DeleteAcc = withDeleteAcc(DeleteModal);
 
 function List({
   personList,
-  deleteHandler,
   deleteModal,
   setDeleteModal,
   setDeleteData,
-  editModalHandler,
   setEditModal,
   setEditData,
   editModal,
-
   setPersonDetails,
   setPersonList,
-  editData,
 }) {
   if (personList === null) {
     return "LOADING...";
@@ -39,8 +35,6 @@ function List({
             {deleteModal && deleteModal.id === li.id ? (
               <DeleteAcc
                 setDeleteModal={setDeleteModal}
-                deleteModal={deleteModal}
-                deleteHandler={deleteHandler}
                 setDeleteData={setDeleteData}
                 li={li}
               />

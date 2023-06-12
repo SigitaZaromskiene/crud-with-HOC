@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function Form({ formHandler, name, surname, setName, setSurname }) {
   return (
     <div className="form">

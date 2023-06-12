@@ -21,7 +21,6 @@ export const withCreateForm = (Component) => (props) => {
       formHandler={formHandler}
       setSurname={props.setSurname}
       setName={props.setName}
-      setPersonDetails={props.setPersonDetails}
       name={props.name}
       surname={props.surname}
     ></Component>
@@ -38,10 +37,6 @@ export const withDeleteAcc = (Component) => (props) => {
   };
 
   return (
-    <Component
-      deleteAccHandler={deleteAccHandler}
-      setDeleteData={props.setDeleteData}
-      deleteModal={deleteModal}
-    />
+    <Component deleteAccHandler={deleteAccHandler} deleteModal={deleteModal} />
   );
 };

@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 function EditModal({ editModal, setEditModal, setEditData }) {
-  console.log(editModal);
   const [name, setName] = useState(editModal.name);
   const [surname, setSurname] = useState(editModal.surname);
 
